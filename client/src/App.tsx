@@ -21,8 +21,6 @@ function App() {
     }
 
     const removeCollection = (name: string) => () => {
-        console.log(collections);
-        console.log(name);
         setCollections(prev => prev.filter((({ collectionName }) => collectionName !== name)))
     }
 
