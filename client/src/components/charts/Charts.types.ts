@@ -1,5 +1,5 @@
 export type ChartsProps = {
-    floorPrice: number;
-    totalVolume: number;
-    totalListings: number;
+    floorPrice: number | null;
+    totalVolume: number | null;
+    totalListings: number | null;
 }

@@ -1,4 +1,4 @@
 export type ChartProps = {
-    value: number;
+    value: number | null;
     width: number;
 }
