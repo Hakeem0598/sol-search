@@ -50,8 +50,6 @@ function App() {
         if (err) setError(err);
     }
 
-    console.log("Hello");
-
     return (
         <div className='min-h-screen bg-gradient-to-b from-gray-1050 to-black'>
             <header className='fixed top-0 left-0 right-0 py-4 border-b border-gray-700 backdrop-filter backdrop-blur-md z-50'>
