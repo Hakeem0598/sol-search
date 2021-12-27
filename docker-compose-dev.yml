@@ -1,0 +1,50 @@
+version: "3.8"
+
+services:
+  client:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./client
+    volumes:
+      - ./client:/home/node/app:ro
+      - /home/node/app/node_modules
+    networks:
+      - frontend
+
+  server:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./server
+    restart: unless-stopped
+    volumes:
+      - ./server:/home/node/app
+      - /home/node/app/node_modules
+    networks:
+      - frontend
+      - backend
+
+  caddy:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./caddy
+    depends_on:
+      - client
+      - server
+    restart: unless-stopped
+    ports:
+      - 80:80
+    networks:
+      - frontend
+      - backend
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+
+
+networks:
+  frontend:
+  backend:
+
+volumes:
+  caddy_data:
+  caddy_config:

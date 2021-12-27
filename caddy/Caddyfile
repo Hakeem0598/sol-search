@@ -1,0 +1,5 @@
+http://localhost:80 {
+    route /* {
+        reverse_proxy client:3000
+    }
+}

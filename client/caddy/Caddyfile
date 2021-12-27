@@ -1,0 +1,5 @@
+carts2.club {
+    tls ayo75@icloud.com
+    root * /srv
+    file_server
+}
