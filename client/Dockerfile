@@ -12,5 +12,3 @@ FROM caddy:alpine
 EXPOSE 80
 COPY ./caddy/Caddyfile /etc/caddy/Caddyfile
 COPY --from=build-stage /home/node/app/build /srv
-
-CMD nginx -g 'daemon off;'
