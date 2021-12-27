@@ -3,7 +3,7 @@ version: "3.8"
 services:
   client:
     build:
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
       context: ./client
     ports:
       - 80:80
