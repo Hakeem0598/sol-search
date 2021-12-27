@@ -8,9 +8,9 @@ import { CollectionProps, CollectionStats, Status } from './Collection.types';
 function Collection({ collectionName, searchName, image, removeCollection }: CollectionProps) {
     const [status, setStatus] = useState<Status>('idle');
     const [error, setError] = useState('');
-    const [floorPrice, setFloorPrice] = useState(0);
-    const [totalVolume, setTotalVolume] = useState(0);
-    const [totalListings, setTotalListings] = useState(0);
+    const [floorPrice, setFloorPrice] = useState<number | null>(null);
+    const [totalVolume, setTotalVolume] = useState<number | null>(null);
+    const [totalListings, setTotalListings] = useState<number | null>(null);
 
     const getFloorPrice = async (collectionName: string) => {
         try {
@@ -68,7 +68,7 @@ function Collection({ collectionName, searchName, image, removeCollection }: Col
                 status === 'initialized' && (
                     <div className='w-full'>
                         <div className='flex justify-start'>
-                            <button className='bg-opacity-10 bg-gray-600 rounded py-2.5 px-5 text-red-500 hover:text-red-700 transition-all duration-300' onClick={removeCollection(collectionName)}>Remove collection</button>
+                            <button className='bg-opacity-10 bg-gray-600 rounded py-2.5 px-5 text-blue-500 hover:text-blue-700 transition-all duration-300' onClick={removeCollection(collectionName)}>Remove collection</button>
                         </div>
                         <div className='text-center space-y-6 w-full'>
                             <img src={ image } alt="Avatar" className='h-40 w-40 rounded-full inline-flex items-center justify-center border-2' />
