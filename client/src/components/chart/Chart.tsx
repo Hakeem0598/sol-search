@@ -28,9 +28,9 @@ function Chart({ value, width }: ChartProps) {
         });
 
         setLineSeries(chart.addAreaSeries({
-            topColor: 'rgba(47,184,207, 0.5',
-			lineColor: 'rgba(47,184,207, 1)',
-			bottomColor: 'rgba(47,184,207, 0.1)',
+            topColor: 'rgba(70,132,194,0.5)',
+            lineColor: 'rgba(70,132,194,1)',
+            bottomColor: 'rgba(70,132,194,0.1)',
             crosshairMarkerBorderColor: 'white',
             lastPriceAnimation: 1,
             priceLineVisible: true
@@ -38,7 +38,7 @@ function Chart({ value, width }: ChartProps) {
     }, [width]);
 
     useEffect(() => {
-        if (lineSeries.update) {
+        if (lineSeries.update && value) {
             lineSeries.update({ time: Date.now() / 1000 as UTCTimestamp, value });
         }
     }, [value, lineSeries]);
