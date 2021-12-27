@@ -30,3 +30,8 @@ services:
 
 networks:
   frontend:
+  backend:
+
+volumes:
+  caddy_data:
+  caddy_config:
