@@ -12,13 +12,25 @@ function Chart({ value, width }: ChartProps) {
             height: 300,
             timeScale: {
                 timeVisible: true,
+            },
+            layout: {
+                backgroundColor: '#000',
+                textColor: '#9ca3af'
+            },
+            grid: {
+                vertLines: {
+                    color: '#374151',
+                },
+                horzLines: {
+                    color: '#374151',
+                },
             }
         });
 
         setLineSeries(chart.addAreaSeries({
-            lineColor: '#60BEEB',
-            topColor: 'lightblue',
-            bottomColor: 'white',
+            topColor: 'rgba(47,184,207, 0.5',
+			lineColor: 'rgba(47,184,207, 1)',
+			bottomColor: 'rgba(47,184,207, 0.1)',
             crosshairMarkerBorderColor: 'white',
             lastPriceAnimation: 1,
             priceLineVisible: true
@@ -31,7 +43,7 @@ function Chart({ value, width }: ChartProps) {
         }
     }, [value, lineSeries]);
 
-    return <div ref={ref} />;
+    return <div ref={ref} className='rounded-lg border overflow-hidden border-gray-700' />;
 }
 
 export default Chart;
