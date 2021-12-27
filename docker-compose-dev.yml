@@ -11,18 +11,6 @@ services:
     networks:
       - frontend
 
-  server:
-    build:
-      dockerfile: Dockerfile.dev
-      context: ./server
-    restart: unless-stopped
-    volumes:
-      - ./server:/home/node/app
-      - /home/node/app/node_modules
-    networks:
-      - frontend
-      - backend
-
   caddy:
     build:
       dockerfile: Dockerfile.dev
@@ -35,7 +23,6 @@ services:
       - 80:80
     networks:
       - frontend
-      - backend
     volumes:
       - caddy_data:/data
       - caddy_config:/config
@@ -43,8 +30,3 @@ services:
 
 networks:
   frontend:
-  backend:
-
-volumes:
-  caddy_data:
-  caddy_config:
