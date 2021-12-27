@@ -17,7 +17,6 @@ services:
       context: ./caddy
     depends_on:
       - client
-      - server
     restart: unless-stopped
     ports:
       - 80:80
@@ -30,7 +29,6 @@ services:
 
 networks:
   frontend:
-  backend:
 
 volumes:
   caddy_data:
