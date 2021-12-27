@@ -67,9 +67,6 @@ function Collection({ collectionName, searchName, image, removeCollection }: Col
             {
                 status === 'initialized' && (
                     <div className='w-full'>
-                        <div className='flex justify-start'>
-                            <button className='bg-opacity-10 bg-gray-600 rounded py-2.5 px-5 text-blue-500 hover:text-blue-700 transition-all duration-300' onClick={removeCollection(collectionName)}>Remove collection</button>
-                        </div>
                         <div className='text-center space-y-6 w-full'>
                             <img src={ image } alt="Avatar" className='h-40 w-40 rounded-full inline-flex items-center justify-center border-2' />
                             <h1 className='capitalize text-4xl text-gray-100'>{ collectionName }</h1>
@@ -82,7 +79,7 @@ function Collection({ collectionName, searchName, image, removeCollection }: Col
                             </div>
                         </div>
                         <div className='w-full flex items-center justify-center py-10'>
-                            <Charts floorPrice={floorPrice} totalVolume={totalVolume} totalListings={totalListings} />
+                            <Charts floorPrice={floorPrice} totalVolume={totalVolume} totalListings={totalListings} removeCollection={removeCollection(collectionName)} />
                         </div>
                     </div>
                 )
